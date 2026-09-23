@@ -530,7 +530,7 @@ EPS.forEach(e=>{
                 `<h3>${e.t}</h3>` +
                 `<div class="cap">${src}</div>` +
                 `<audio controls preload="metadata" type="audio/mp4" src="${src}"></audio>`;
-  ['num','h3','cap'].forEach(sel=>{
+  ['.num','h3','.cap'].forEach(sel=>{
     const el = c.querySelector(sel);
     const a = c.querySelector('audio');
     el.title = 'Tocar ou pausar o episódio';
