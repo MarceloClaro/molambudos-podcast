@@ -75,8 +75,8 @@
   }
   header.hero::before{
     content:""; position:absolute; inset:-6px; z-index:0;
-    background:url('capa_podcast.jpg') center/cover no-repeat;
-    opacity:.15; filter:blur(7px); transform:scale(1.04); pointer-events:none;
+    background:url('figuras/drawbridge.jpg') center/cover no-repeat;
+    opacity:.26; filter:blur(6px); transform:scale(1.05); pointer-events:none;
   }
   header.hero::after{
     content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
@@ -239,6 +239,30 @@
   }
   .mid .leg::after{content:"↗"; color:var(--ocre); font-size:.85rem;}
 
+  /* ============ galeria de figuras ============ */
+  .gal{
+    display:grid; grid-template-columns:repeat(auto-fill,minmax(185px,1fr));
+    gap:.9rem; margin:1.3rem 0 2.2rem;
+  }
+  .gal figure{
+    margin:0; background:var(--painel);
+    border:1px solid var(--linha); border-radius:10px; overflow:hidden;
+    transition:transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+  }
+  .gal figure:hover{
+    transform:translateY(-3px); border-color:rgba(201,161,95,.45);
+    box-shadow:0 14px 30px rgba(0,0,0,.36);
+  }
+  .gal img{width:100%; display:block; aspect-ratio:4/3; object-fit:cover;}
+  .gal figcaption{
+    display:flex; justify-content:space-between; align-items:baseline; gap:.5rem;
+    padding:.5rem .65rem .55rem; font-size:.76rem; color:var(--papel); font-weight:500;
+  }
+  .gal figcaption code{
+    font-size:.66rem; background:rgba(201,161,95,.12);
+    padding:.08rem .4rem; border-radius:4px; color:var(--texto-2); font-family:var(--mono);
+  }
+
   /* ============ recursos ============ */
   ul.links{
     list-style:none; background:var(--painel);
@@ -285,6 +309,7 @@
     <a href="#trailer">Trailer</a>
     <a href="#episodios">Episódios</a>
     <a href="#mapa">Mapa mental</a>
+    <a href="#figuras">Figuras</a>
     <a href="#divulgacao">Divulgação</a>
     <a href="#recursos">Recursos</a>
     <a class="nav-cta" href="https://clubedeautores.com.br/livro/molambudos-o-diario-do-paciente-1-2" target="_blank" rel="noopener">Comprar livro</a>
@@ -340,6 +365,28 @@
     <pre id="mmd-fonte" class="mmd-pre">carregando…</pre>
   </details>
   <div id="mermaid-live" class="frame" style="margin-top:.9rem;"></div>
+
+  <h2 id="figuras">Figuras da obra <span class="sub">acervo sépia · processo criativo</span></h2>
+  <p class="peq" style="margin-bottom:.7rem;">Retratos e imagens simbólicas do processo de criação — climatização visual do universo
+  Molambudos (<em>Molambudos v2 — Diário</em>, figuras em sépia).</p>
+  <div class="gal">
+    <figure><img loading="lazy" decoding="async" src="figuras/foto_01_paciente1260.jpg" alt="Retrato do Paciente 1.260 em sépia"><figcaption><span>O Paciente 1.260</span><code>foto_01</code></figcaption></figure>
+    <figure><img loading="lazy" decoding="async" src="figuras/foto_02_dr_heitor.jpg" alt="Retrato do Dr. Heitor em sépia"><figcaption><span>Dr. Heitor</span><code>foto_02</code></figcaption></figure>
+    <figure><img loading="lazy" decoding="async" src="figuras/foto_03_homem_livro.jpg" alt="Homem lendo um livro, sépia"><figcaption><span>O leitor do diário</span><code>foto_03</code></figcaption></figure>
+    <figure><img loading="lazy" decoding="async" src="figuras/foto_04_lucia_rodoviaria.jpg" alt="Lúcia na rodoviária, sépia"><figcaption><span>Lúcia — rodoviária</span><code>foto_04</code></figcaption></figure>
+    <figure><img loading="lazy" decoding="async" src="figuras/foto_05_luc04.jpg" alt="Fotografia de Lúcia, sépia"><figcaption><span>Lúcia (fotografia nº 4)</span><code>foto_05</code></figcaption></figure>
+    <figure><img loading="lazy" decoding="async" src="figuras/img-000.jpg" alt="Imagem do acervo 0, sépia"><figcaption><span>Imagem do acervo — 0</span><code>img-000</code></figcaption></figure>
+    <figure><img loading="lazy" decoding="async" src="figuras/img-001.jpg" alt="Imagem do acervo 1, sépia"><figcaption><span>Imagem do acervo — 1</span><code>img-001</code></figcaption></figure>
+    <figure><img loading="lazy" decoding="async" src="figuras/chains.jpg" alt="Correntes, figura em sépia"><figcaption><span>Correntes</span><code>chains</code></figcaption></figure>
+    <figure><img loading="lazy" decoding="async" src="figuras/drawbridge.jpg" alt="Ponte levadiça, figura em sépia"><figcaption><span>Ponte levadiça — portões do Colônia</span><code>drawbridge</code></figcaption></figure>
+    <figure><img loading="lazy" decoding="async" src="figuras/piazza.jpg" alt="Praça, figura em sépia"><figcaption><span>Praça</span><code>piazza</code></figcaption></figure>
+    <figure><img loading="lazy" decoding="async" src="figuras/platform.jpg" alt="Plataforma, figura em sépia"><figcaption><span>Plataforma</span><code>platform</code></figcaption></figure>
+    <figure><img loading="lazy" decoding="async" src="figuras/smoke.jpg" alt="Fumaça, figura em sépia"><figcaption><span>Fumaça</span><code>smoke</code></figcaption></figure>
+    <figure><img loading="lazy" decoding="async" src="figuras/staircase.jpg" alt="Escadaria, figura em sépia"><figcaption><span>Escadaria</span><code>staircase</code></figcaption></figure>
+    <figure><img loading="lazy" decoding="async" src="figuras/tower.jpg" alt="Torre, figura em sépia"><figcaption><span>Torre</span><code>tower</code></figcaption></figure>
+    <figure><img loading="lazy" decoding="async" src="figuras/well.jpg" alt="Poço, figura em sépia"><figcaption><span>Poço</span><code>well</code></figcaption></figure>
+    <figure><img loading="lazy" decoding="async" src="figuras/wheel.jpg" alt="Roda, figura em sépia"><figcaption><span>Roda</span><code>wheel</code></figcaption></figure>
+  </div>
 
   <h2 id="divulgacao">Material de divulgação <span class="sub">clique para abrir em alta</span></h2>
   <div class="mid">
