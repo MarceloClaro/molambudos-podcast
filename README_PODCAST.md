@@ -178,3 +178,5 @@ aberto em mermaid.live).
 - **Link definitivo:** https://marceloclaro.github.io/molambudos-podcast/
 - Repositório público: https://github.com/MarceloClaro/molambudos-podcast
 - Edição web: áudio 96kbps AAC estéreo (originais intactos no pacote-fonte); total 0,46GB < 1GB.
+
+- **Livro (venda):** https://clubedeautores.com.br/livro/molambudos-o-diario-do-paciente-1-2 — Clube de Autores.

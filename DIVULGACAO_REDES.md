@@ -1,6 +1,8 @@
 # 🎙️ MOLAMBUDOS — O Diário do Paciente 1.260
 ## Série em Áudio · 26 episódios
 
+📖 **Compre o livro completo:** https://clubedeautores.com.br/livro/molambudos-o-diario-do-paciente-1-2
+
 **Ouça agora (link público):**
 👉 https://marceloclaro.github.io/molambudos-podcast/
 
