@@ -36,6 +36,16 @@
   }
   ::selection{background:var(--ocre); color:#14100c;}
   :focus-visible{outline:2px solid var(--ocre); outline-offset:2px; border-radius:3px;}
+  /* grão de filme sobre tudo (sépia) */
+  body::before{
+    content:""; position:fixed; inset:0; z-index:2000; pointer-events:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/></svg>");
+    opacity:.045; mix-blend-mode:overlay;
+  }
+  ::-webkit-scrollbar{width:10px;height:10px;}
+  ::-webkit-scrollbar-track{background:#0d0a07;}
+  ::-webkit-scrollbar-thumb{background:#3a2f22;border-radius:8px;border:2px solid #0d0a07;}
+  ::-webkit-scrollbar-thumb:hover{background:var(--ocre);}
   img{max-width:100%;}
   a{transition:color .18s ease, border-color .18s ease, transform .18s ease, background .18s ease;}
   .wrap{max-width:1040px; margin:0 auto; padding:0 1.4rem 2rem;}
@@ -69,8 +79,9 @@
   /* ============ hero ============ */
   header.hero{
     position:relative; overflow:hidden;
-    display:flex; gap:2.2rem; align-items:flex-start; flex-wrap:wrap;
-    padding:3.2rem 0 2.4rem;
+    display:flex; gap:clamp(1.6rem,4vw,3.2rem); align-items:center; flex-wrap:wrap;
+    padding:4.4rem 0 3.2rem;
+    min-height:min(660px,92vh);
     scroll-margin-top:var(--nav-h);
   }
   header.hero::before{
@@ -86,20 +97,28 @@
   }
   header.hero > *{position:relative; z-index:1;}
   .capa{
-    width:min(280px,100%); border-radius:6px;
-    border:1px solid rgba(201,161,95,.4);
-    box-shadow:0 26px 60px rgba(0,0,0,.65), 0 4px 14px rgba(0,0,0,.5);
+    width:min(300px,100%); border-radius:8px;
+    border:1px solid rgba(201,161,95,.45);
+    box-shadow:0 30px 70px rgba(0,0,0,.7), 0 6px 18px rgba(0,0,0,.55);
   }
   .titulo h1{
     font-family:var(--serif); font-weight:700;
-    font-size:clamp(2.1rem,6vw,3.1rem); line-height:1.06;
-    color:var(--papel); letter-spacing:-.01em;
+    font-size:clamp(2.4rem,7.2vw,3.9rem); line-height:1.02;
+    color:var(--papel); letter-spacing:-.015em;
+    text-shadow:0 3px 24px rgba(0,0,0,.5);
   }
   .titulo .serie{
     color:var(--ocre); font-size:.78rem; font-weight:600;
-    text-transform:uppercase; letter-spacing:.26em; margin:.7rem 0 .9rem;
+    text-transform:uppercase; letter-spacing:.26em; margin:.85rem 0 .95rem;
   }
   .titulo .sinopse{max-width:58ch; font-size:1rem; margin-bottom:.7rem; color:#cec1a7;}
+  .stats{display:flex; flex-wrap:wrap; gap:.55rem; margin-top:1.5rem;}
+  .stat{
+    font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:var(--texto-2);
+    border:1px solid var(--linha); border-radius:999px;
+    padding:.32rem .85rem; background:rgba(18,14,10,.55);
+  }
+  .stat b{color:var(--ocre); font-weight:600; font-family:var(--mono); margin-right:.35rem;}
   .epigrafe{
     font-family:var(--serif); font-style:italic; font-weight:600;
     font-size:1.08rem; color:var(--papel);
@@ -154,6 +173,41 @@
     font-family:var(--mono); font-size:.7rem; letter-spacing:.03em; text-transform:none; font-weight:400;
   }
   audio{width:100%;}
+
+  /* ============ cenas cinematográficas ============ */
+  .cena{
+    position:relative; overflow:hidden; border-radius:14px;
+    min-height:272px; margin:2.9rem 0;
+    display:grid; place-items:center; text-align:center;
+    box-shadow:0 20px 48px rgba(0,0,0,.45);
+    border:1px solid rgba(201,161,95,.18);
+  }
+  .cena::before{
+    content:""; position:absolute; inset:-4px;
+    background-position:center 38%; background-size:cover; background-repeat:no-repeat;
+    transform:scale(1.02);
+  }
+  .cena.smoke::before{background-image:url('figuras/smoke.jpg');}
+  .cena.tower::before{background-image:url('figuras/tower.jpg');}
+  .cena.well::before{background-image:url('figuras/well.jpg');}
+  .cena::after{
+    content:""; position:absolute; inset:0;
+    background:
+      radial-gradient(95% 130% at 50% 0%, rgba(18,14,10,.3), rgba(18,14,10,.8) 72%),
+      linear-gradient(180deg, rgba(18,14,10,.55), rgba(18,14,10,.4) 50%, rgba(18,14,10,.85));
+  }
+  .cena-txt{position:relative; z-index:1; padding:2.6rem 1.6rem; max-width:780px;}
+  .cena-kicker{
+    color:var(--ocre); font-size:.7rem; font-weight:600; letter-spacing:.32em;
+    text-transform:uppercase; margin-bottom:1.1rem;
+  }
+  .cena-quote{
+    display:block; font-family:var(--serif); font-style:italic; font-weight:600;
+    font-size:clamp(1.4rem,3.8vw,2.05rem); line-height:1.28; color:var(--papel);
+    text-shadow:0 2px 16px rgba(0,0,0,.6);
+  }
+  .cena-cite{display:block; margin-top:1.15rem; font-size:.76rem; letter-spacing:.16em; text-transform:uppercase; color:var(--texto-2);}
+  @media (min-width:900px){ .cena::before{background-attachment:fixed;} }
 
   /* ============ seções ============ */
   h2{
@@ -239,13 +293,14 @@
   }
   .mid .leg::after{content:"↗"; color:var(--ocre); font-size:.85rem;}
 
-  /* ============ galeria de figuras ============ */
+  /* ============ galeria de figuras (masonry) ============ */
   .gal{
-    display:grid; grid-template-columns:repeat(auto-fill,minmax(185px,1fr));
-    gap:.9rem; margin:1.3rem 0 2.2rem;
+    columns:3 200px; column-gap:1rem;
+    margin:1.3rem 0 2.2rem;
   }
   .gal figure{
-    margin:0; background:var(--painel);
+    margin:0 0 1rem; break-inside:avoid; display:inline-block; width:100%;
+    background:var(--painel);
     border:1px solid var(--linha); border-radius:10px; overflow:hidden;
     transition:transform .22s ease, border-color .22s ease, box-shadow .22s ease;
   }
@@ -253,7 +308,7 @@
     transform:translateY(-3px); border-color:rgba(201,161,95,.45);
     box-shadow:0 14px 30px rgba(0,0,0,.36);
   }
-  .gal img{width:100%; display:block; aspect-ratio:4/3; object-fit:cover;}
+  .gal img{width:100%; display:block;}
   .gal figcaption{
     display:flex; justify-content:space-between; align-items:baseline; gap:.5rem;
     padding:.5rem .65rem .55rem; font-size:.76rem; color:var(--papel); font-weight:500;
@@ -289,9 +344,10 @@
   @media (max-width:760px){
     .nav-links a:not(.nav-cta){display:none;}
     .wrap{padding:0 1.05rem 2rem;}
-    header.hero{padding-top:2.2rem; gap:1.5rem;}
-    .capa{width:min(260px,100%); margin:0 auto;}
+    header.hero{padding-top:2.6rem; gap:1.5rem; justify-content:center; min-height:0;}
+    .capa{width:min(250px,80%); margin:0 auto;}
     .titulo{text-align:left;}
+    .stats{justify-content:flex-start;}
     .cta-row{width:100%;}
     .cta-row a{flex:1 1 auto; text-align:center;}
   }
@@ -326,6 +382,12 @@
       <p class="sinopse"><strong>Uma narrativa em fragmentos.</strong> Do sertão do Ceará (1915–1932) ao Hospital Colônia de Barbacena (1903–1994), o diário de Joaquim Antônio Correia atravessa décadas — e contamina quem o lê.</p>
       <p class="epigrafe">“Você é o Paciente 1.263.”</p>
       <p class="peq autor">Marcelo Dias de Carvalho Filho · coautor: Marcelo Claro</p>
+      <div class="stats">
+        <span class="stat"><b>26</b> episódios</span>
+        <span class="stat"><b>616</b> minutos de áudio</span>
+        <span class="stat"><b>5</b> partes · <b>3</b> atos</span>
+        <span class="stat"><b>1903–1994</b> Barbacena</span>
+      </div>
       <div class="cta-row">
         <a class="btn-livro" href="https://clubedeautores.com.br/livro/molambudos-o-diario-do-paciente-1-2" target="_blank" rel="noopener">📚 Comprar o livro · Clube de Autores</a>
         <a class="btn-fantasma" href="#trailer">▶ Ouvir trailer</a>
@@ -352,8 +414,24 @@
     </div>
   </section>
 
+  <section class="cena smoke" aria-label="Cena: As Vozes">
+    <div class="cena-txt">
+      <div class="cena-kicker">Molambudos · Cena 17 — As Vozes</div>
+      <span class="cena-quote">“As vozes chegaram primeiro.”</span>
+      <span class="cena-cite">Episódio 17 · MEM-22</span>
+    </div>
+  </section>
+
   <h2 id="episodios">Episódios <span class="sub">26 episódios · ordem técnica de publicação</span></h2>
   <div class="grid" id="episodios-grid"></div>
+
+  <section class="cena tower" aria-label="Cena: O Colônia">
+    <div class="cena-txt">
+      <div class="cena-kicker">Molambudos · Cena 8 — A Chegada ao Colônia</div>
+      <span class="cena-quote">“O Colônia erguia-se como um castelo.”</span>
+      <span class="cena-cite">Episódio 08 · MEM-08</span>
+    </div>
+  </section>
 
   <h2 id="mapa">Mapa mental <span class="sub">Mermaid + SVG renderizado</span></h2>
   <p class="peq" style="margin-bottom:.6rem;">Estrutura do mind map do NotebookLM convertida para sintaxe
@@ -368,7 +446,7 @@
 
   <h2 id="figuras">Figuras da obra <span class="sub">acervo sépia · processo criativo</span></h2>
   <p class="peq" style="margin-bottom:.7rem;">Retratos e imagens simbólicas do processo de criação — climatização visual do universo
-  Molambudos (<em>Molambudos v2 — Diário</em>, figuras em sépia).</p>
+  Molambudos em sépia. Fontes: <code>projetos/molambudos/figures/</code> e <code>Molambudos_v2_Diario/figuras/</code>.</p>
   <div class="gal">
     <figure><img loading="lazy" decoding="async" src="figuras/foto_01_paciente1260.jpg" alt="Retrato do Paciente 1.260 em sépia"><figcaption><span>O Paciente 1.260</span><code>foto_01</code></figcaption></figure>
     <figure><img loading="lazy" decoding="async" src="figuras/foto_02_dr_heitor.jpg" alt="Retrato do Dr. Heitor em sépia"><figcaption><span>Dr. Heitor</span><code>foto_02</code></figcaption></figure>
@@ -395,6 +473,14 @@
     <a href="slides_molambudos.pdf"><img src="capa_podcast.jpg" alt="Apresentação em slides (PDF)"><div class="leg">Slide deck — 15 páginas (PDF)</div></a>
     <a href="capa_podcast.jpg"><img src="capa_podcast.jpg" alt="Capa do podcast Molambudos"><div class="leg">Capa — alta qualidade (JPG)</div></a>
   </div>
+
+  <section class="cena well" aria-label="Cena: A Última Página">
+    <div class="cena-txt">
+      <div class="cena-kicker">Molambudos · Cena final — A Última Página</div>
+      <span class="cena-quote">“O poço guarda o diário.”</span>
+      <span class="cena-cite">Episódio 26 · MEM-26</span>
+    </div>
+  </section>
 
   <h2 id="recursos">Recursos técnicos <span class="sub">rastreabilidade aberta</span></h2>
   <ul class="links">
