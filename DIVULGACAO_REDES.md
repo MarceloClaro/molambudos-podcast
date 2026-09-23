@@ -2,7 +2,7 @@
 ## Série em Áudio · 26 episódios
 
 **Ouça agora (link público):**
-👉 https://imported-exec-institute-looksmart.trycloudflare.com/index_podcast.html
+👉 https://marceloclaro.github.io/molambudos-podcast/
 
 ---
 

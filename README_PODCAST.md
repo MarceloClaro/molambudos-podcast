@@ -134,9 +134,9 @@ Produzido via NotebookLM (`nlm` CLI v0.11.6) pelo executor físico SPEC-973
 
 ## Divulgação adicional
 
-- **`trailer_podcast.mp4`** — vídeo promocional de 30s (capa com efeito Ken Burns
-  + áudio do preview; H.264 1080×1080 25fps + AAC; sha256 `25b06431…`).
-  Pronto para Instagram Reels / TikTok / YouTube Shorts.
+- **`podcast_R550.m4a`** — trailer estendido em áudio (23min34s, AAC LC mono
+  97kbps; sha256 `71ffe7ed…`, gerado no ciclo R550) que substitui o antigo
+  `trailer_podcast.mp4` no site. Player dedicado na landing page.
 - **`index_podcast.html`** — página de destino do podcast (landing page): capa,
   trailer com player, 26 players de áudio, aviso de conteúdo, infográficos,
   slides, feed, metadados e instruções de upload. Basta hospedar junto com os
@@ -172,3 +172,9 @@ aberto em mermaid.live).
 - Testado via internet: 7/7 assets 200 OK.
 - Para link permanente: usar domínio próprio + Cloudflare Tunnel nomeado (arquivo de config),
   ou hospedar o pacote em host estático (GitHub Pages/Cloudflare Pages) com os 26 m4a + feed.
+
+## Acesso permanente (GitHub Pages)
+
+- **Link definitivo:** https://marceloclaro.github.io/molambudos-podcast/
+- Repositório público: https://github.com/MarceloClaro/molambudos-podcast
+- Edição web: áudio 96kbps AAC estéreo (originais intactos no pacote-fonte); total 0,46GB < 1GB.

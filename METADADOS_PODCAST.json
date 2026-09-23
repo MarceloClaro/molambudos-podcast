@@ -33,6 +33,12 @@
       "dimensoes": "2752x1536 RGBA",
       "sha256": "f685f3ca0526bf0f2ec1faa96e5120dfa3973210b3754e75ecbf45f3f45dc8e6",
       "conteudo_ocr": "Molambudos: o surgimento do trauma e o ciclo do paciente; 62 anos de cárcere em Barbacena (1917-1979); transmissão por hospedeiros: Joaquim (1.260) → Dr. H. (1.261) → Dra. L. (1.262) → Leitor (1.263); do sertão ao campo"
+    },
+    {
+      "arquivo": "podcast_R550.m4a",
+      "origem": "research/producao_real/audio/podcast_R550.m4a (ciclo R550)",
+      "descricao": "Trailer estendido em áudio (23min34s, mono 97kbps) — substitui trailer_podcast.mp4",
+      "sha256": "71ffe7ed8552672588d89ab9f8644c6d624095157a72791e8b7a33643cb942e3"
     }
   ],
   "mindmap": {
@@ -73,13 +79,7 @@
     "cobre": "host de feed, Podcast Index, Spotify, Apple Podcasts, YouTube, divulgação e checklist final",
     "sha256": "c181bd1ade2011437e20d27ce175e8e228010e80fd5c4e4818a2b40080ec6e5a"
   },
-  "trailer_video": {
-    "arquivo": "trailer_podcast.mp4",
-    "descricao": "Vídeo promocional 30s: capa 1400x1400 com efeito Ken Burns (zoom 1.0→1.15) + áudio do preview",
-    "duracao": "30.00s",
-    "codec": "H.264 High yuv420p 1080x1080 25fps + AAC LC 44100Hz stereo 160k",
-    "sha256": "25b0643172fa1bbe4e3d139f681c2f20811aa5a8801b971d40e02d021d363f36"
-  },
+  "trailer_video": null,
   "landing_page": {
     "arquivo": "index_podcast.html",
     "descricao": "Página de destino do podcast: capa, trailer (player), 26 players de áudio, aviso de conteúdo, material de divulgação, recursos técnicos",
