@@ -166,7 +166,11 @@
     display:flex; align-items:center; justify-content:space-between; gap:.7rem; flex-wrap:wrap;
     font-size:.74rem; color:var(--ocre); text-transform:uppercase;
     letter-spacing:.17em; font-weight:600; margin-bottom:.55rem;
+    cursor:pointer; user-select:none; transition:color .18s ease;
   }
+  .player-label:hover{color:var(--ocre-alto);}
+  .player-label.playing{color:var(--ocre-alto);}
+  .player-label.playing .badge{border-color:var(--ocre); background:rgba(201,161,95,.28);}
   .badge{
     background:rgba(201,161,95,.12); border:1px solid rgba(201,161,95,.35);
     color:var(--papel); border-radius:999px; padding:.16rem .65rem;
@@ -249,6 +253,9 @@
     font-family:var(--mono); font-size:.7rem; color:#8d7f68;
     margin-bottom:.65rem; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
   }
+  .card .num, .card h3, .card .cap{cursor:pointer;}
+  .card h3::after{content:" ▶"; font-size:.68em; vertical-align:2px; color:var(--ocre); opacity:0; transition:opacity .18s ease;}
+  .card:hover h3::after, .card:focus-within h3::after{opacity:1;}
 
   /* ============ mapa mental (quadros brancos) ============ */
   .frame{
@@ -405,11 +412,11 @@
   <section class="player" id="trailer" aria-label="Trailers">
     <div class="player-row">
       <div class="player-label"><span>▶ Trailer de 30 segundos</span><span class="badge">preview EP01 · fades 2s</span></div>
-      <audio controls preload="none" src="preview_ep01_30s.m4a"></audio>
+      <audio controls preload="metadata" type="audio/mp4" src="preview_ep01_30s.m4a"></audio>
     </div>
     <div class="player-row">
       <div class="player-label"><span>▶ Trailer estendido</span><span class="badge">podcast_R550.m4a · 23min34s</span></div>
-      <audio controls preload="none" src="podcast_R550.m4a"></audio>
+      <audio controls preload="metadata" type="audio/mp4" src="podcast_R550.m4a"></audio>
     </div>
   </section>
 
@@ -522,8 +529,34 @@ EPS.forEach(e=>{
   c.innerHTML = `<div class="num">Episódio ${String(e.ep).padStart(2,'0')} · MEM-${String(e.mem).padStart(2,'0')}</div>` +
                 `<h3>${e.t}</h3>` +
                 `<div class="cap">${src}</div>` +
-                `<audio controls preload="none" src="${src}"></audio>`;
+                `<audio controls preload="metadata" type="audio/mp4" src="${src}"></audio>`;
+  ['num','h3','cap'].forEach(sel=>{
+    const el = c.querySelector(sel);
+    const a = c.querySelector('audio');
+    el.title = 'Tocar ou pausar o episódio';
+    el.addEventListener('click', ()=>{ a.paused ? a.play() : a.pause(); });
+  });
   g.appendChild(c);
+});
+
+// players dos trailers: o rótulo ▶ torna-se botão play/pause (acessível por teclado)
+document.querySelectorAll('.player-row').forEach(row=>{
+  const audio = row.querySelector('audio');
+  const label = row.querySelector('.player-label');
+  if (!audio || !label) return;
+  const span = label.querySelector('span');
+  const orig = span ? span.textContent : '';
+  label.setAttribute('tabindex','0');
+  label.setAttribute('role','button');
+  label.setAttribute('aria-label','Reproduzir ou pausar trailer');
+  const toggle = ()=>{ audio.paused ? audio.play() : audio.pause(); };
+  label.addEventListener('click', toggle);
+  label.addEventListener('keydown', e=>{
+    if (e.key==='Enter' || e.key===' '){ e.preventDefault(); toggle(); }
+  });
+  audio.addEventListener('play', ()=>{ label.classList.add('playing'); if(span) span.textContent='⏸ '+orig.replace(/^▶\s*/,''); });
+  audio.addEventListener('pause', ()=>{ label.classList.remove('playing'); if(span) span.textContent=orig; });
+  audio.addEventListener('ended', ()=>{ label.classList.remove('playing'); if(span) span.textContent=orig; });
 });
 </script>
 
